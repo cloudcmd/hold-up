@@ -1,3 +1,9 @@
+2022.04.06, v2.1.0
+
+feature:
+- (hold-up) use @iocmd/wait
+
+
 2022.04.06, v2.0.0
 
 feature:

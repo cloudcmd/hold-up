@@ -7,6 +7,7 @@ const holdUp = require('..');
 
 test('hold-up: no args', async (t) => {
     const [e] = await tryToCatch(holdUp);
+    
     t.equal(e.message, 'fn should be a function or an array!', 'should reject when no fn');
     t.end();
 });
@@ -19,7 +20,7 @@ test('hold-up: no options', async (t) => {
     t.end();
 });
 
-test('hold-up: no args', async (t) => {
+test('hold-up: options: not an object', async (t) => {
     const fn = async () => {};
     const [e] = await tryToCatch(holdUp, fn, null);
     
@@ -38,7 +39,7 @@ test('hold-up: throw', async (t) => {
         count: 1,
     });
     
-    t.equal(e.message, 'hello', 'should equal');
+    t.equal(e.message, 'hello');
     t.end();
 });
 
@@ -53,18 +54,16 @@ test('hold-up: fn: arguments', async (t) => {
         count: 1,
     });
     
-    t.equal(e.message, 'hello-world', 'should equal');
+    t.equal(e.message, 'hello-world');
     t.end();
 });
 
 test('hold-up: fn: return result', async (t) => {
-    const fn = async () => {
-        return 'hello';
-    };
+    const fn = async () => 'hello';
     
     const result = await holdUp([fn]);
     
-    t.equal(result, 'hello', 'should equal');
+    t.equal(result, 'hello');
     t.end();
 });
 
@@ -80,7 +79,7 @@ test('hold-up: call log', async (t) => {
         time: 1,
     });
     
-    t.ok(log.calledWith(`1 attempts left`), 'should call log');
+    t.calledWith(log, [`1 attempts left`], 'should call log');
     t.end();
 });
 

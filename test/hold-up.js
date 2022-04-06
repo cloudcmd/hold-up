@@ -13,7 +13,7 @@ test('hold-up: no args', async (t) => {
 });
 
 test('hold-up: no options', async (t) => {
-    const fn = async () => {};
+    const fn = stub().resolves();
     const [e] = await tryToCatch(holdUp, fn, null);
     
     t.equal(e.message, 'options should be an object!', 'should reject when options not object');
@@ -21,7 +21,7 @@ test('hold-up: no options', async (t) => {
 });
 
 test('hold-up: options: not an object', async (t) => {
-    const fn = async () => {};
+    const fn = stub().resolves();
     const [e] = await tryToCatch(holdUp, fn, null);
     
     t.equal(e.message, 'options should be an object!', 'should reject when options not object');
@@ -30,9 +30,7 @@ test('hold-up: options: not an object', async (t) => {
 
 test('hold-up: throw', async (t) => {
     const log = stub();
-    const fn = async () => {
-        throw Error('hello');
-    };
+    const fn = stub().rejects(Error('hello'));
     
     const [e] = await tryToCatch(holdUp, fn, {
         log,
@@ -59,7 +57,7 @@ test('hold-up: fn: arguments', async (t) => {
 });
 
 test('hold-up: fn: return result', async (t) => {
-    const fn = async () => 'hello';
+    const fn = stub().resolves('hello');
     
     const result = await holdUp([fn]);
     
@@ -69,9 +67,7 @@ test('hold-up: fn: return result', async (t) => {
 
 test('hold-up: call log', async (t) => {
     const log = stub();
-    const fn = async () => {
-        throw Error('hello');
-    };
+    const fn = stub().rejects(Error('hello'));
     
     await tryToCatch(holdUp, fn, {
         log,
@@ -85,7 +81,7 @@ test('hold-up: call log', async (t) => {
 
 test('hold-up: not call log', async (t) => {
     const log = stub();
-    const fn = async () => {};
+    const fn = stub().resolves();
     
     await tryToCatch(holdUp, fn, {
         log,

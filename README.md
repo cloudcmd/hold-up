@@ -1,4 +1,4 @@
-# Hold Up [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
+# Hold Up [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
 `hold up` is `setInterval` with `promises`, `counter` and `error handling`.
 It runs a `function` and if it `throws` run it again with interval (defaults to 1 second) `counter` times (defaults to 5). If it fails, promise throws, if successed resolves.
@@ -10,6 +10,7 @@ It runs a `function` and if it `throws` run it again with interval (defaults to 
 ## API
 
 ### holdUp(fn[, options])
+
 ### holdUp([fn, args], options)
 
 - `fn` - function
@@ -28,13 +29,13 @@ const fn = async (a = 'hello') => {
 await holdUp(fn);
 
 // reject in a 5 seconds
-[Error: hello]
+// [Error: hello]
 
 // with arguments
 await holdUp([fn, 'world']);
 
 // reject in a 5 seconds
-[Error: hello]
+//[Error: hello]
 
 
 // when you need to override options,
@@ -57,14 +58,11 @@ await holdUp([fn, 'hello'], {
 
 MIT
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@iocmd/hold-up.svg?style=flat
-[BuildStatusIMGURL]:        https://travis-ci.com/iocmd/hold-up.svg?branch=master
-[DependencyStatusIMGURL]:   https://img.shields.io/david/iocmd/hold-up.svg?style=flat
-[LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
-[NPMURL]:                   https://npmjs.org/package/@iocmd/hold-up "npm"
-[BuildStatusURL]:           https://travis-ci.com/iocmd/hold-up  "Build Status"
-[DependencyStatusURL]:      https://david-dm.org/iocmd/hold-up "Dependency Status"
-[LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
-
-[CoverageURL]:              https://coveralls.io/github/iocmd/hold-up?branch=master
-[CoverageIMGURL]:           https://coveralls.io/repos/iocmd/hold-up/badge.svg?branch=master&service=github
+[NPMIMGURL]: https://img.shields.io/npm/v/@iocmd/hold-up.svg?style=flat
+[BuildStatusIMGURL]: https://travis-ci.com/iocmd/hold-up.svg?branch=master
+[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
+[NPMURL]: https://npmjs.org/package/@iocmd/hold-up "npm"
+[BuildStatusURL]: https://travis-ci.com/iocmd/hold-up "Build Status"
+[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
+[CoverageURL]: https://coveralls.io/github/iocmd/hold-up?branch=master
+[CoverageIMGURL]: https://coveralls.io/repos/iocmd/hold-up/badge.svg?branch=master&service=github

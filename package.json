@@ -34,11 +34,11 @@
     "watch:coverage": "madrun watch:coverage"
   },
   "dependencies": {
+    "@iocmd/wait": "^2.0.0",
     "try-to-catch": "^3.0.0"
   },
   "license": "MIT",
   "devDependencies": {
-    "@cloudcmd/stub": "^3.7.1",
     "eslint": "^8.12.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^14.7.1",

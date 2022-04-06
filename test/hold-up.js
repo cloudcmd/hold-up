@@ -1,7 +1,10 @@
 'use strict';
 
-const stub = require('@cloudcmd/stub');
-const test = require('supertape');
+const {
+    test,
+    stub,
+} = require('supertape');
+
 const tryToCatch = require('try-to-catch');
 const holdUp = require('..');
 

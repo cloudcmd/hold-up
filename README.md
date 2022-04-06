@@ -37,7 +37,6 @@ await holdUp([fn, 'world']);
 // reject in a 5 seconds
 //[Error: hello]
 
-
 // when you need to override options,
 await holdUp([fn, 'hello'], {
     count: 5,       // default

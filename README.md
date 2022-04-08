@@ -1,7 +1,7 @@
 # Hold Up [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
 `hold up` is `setInterval` with `promises`, `counter` and `error handling`.
-It runs a `function` and if it `throws` run it again with interval (defaults to 1 second) `counter` times (defaults to 5). If it fails, promise throws, if successed resolves.
+It runs a `function` and if `throws` run it again with interval (defaults to 1 second) `counter` times (defaults to 5). If it fails, promise rejects, if successed resolves.
 
 ## Install
 
